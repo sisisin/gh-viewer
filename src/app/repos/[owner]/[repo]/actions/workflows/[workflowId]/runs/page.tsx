@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { api } from '@/modules/api';
 import styles from './page.module.css';
+import { Save } from './save';
 type Params = {
   params: {
     workflowId: string;
@@ -15,6 +16,7 @@ export default async function WorkflowRuns({ params }: Params) {
   return (
     <main className={styles.main}>
       <h2>Workflow runs</h2>
+      <Save {...params}></Save>
       <div className={styles.grid}>
         {runs.map((r) => {
           return (

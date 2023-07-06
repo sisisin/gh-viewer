@@ -39,4 +39,13 @@ export const api = {
 
     return res.data.jobs;
   },
+  getWorkflowRunUsage: async ({ repo, owner, runId }: Repo & { runId: number }) => {
+    const res = await octokit.actions.getWorkflowRunUsage({
+      owner,
+      repo,
+      run_id: runId,
+    });
+
+    return res.data;
+  },
 };
